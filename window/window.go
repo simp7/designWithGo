@@ -1,5 +1,7 @@
 package window
 
+import "github.com/simp7/designWithGo/window/theme"
+
 type state int
 
 const (
@@ -29,13 +31,13 @@ type Mode interface {
 
 type window struct {
 	Window
-	Mode
+	theme.Theme
 	OS
 } //일치하는 인터페이스를 선언했다면 클래스 이름은 소문자로 시작하는 것이 안전
 
-func NewWindow(os OS, mode Mode) *window {
+func NewWindow(os OS, theme theme.Theme) *window {
 	w := new(window)
 	w.OS = os
-	w.Mode = mode
+	w.Theme = theme
 	return w
 }
